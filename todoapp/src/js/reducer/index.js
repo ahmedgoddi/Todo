@@ -1,8 +1,9 @@
-import {ADD_TODO, DELETE_TODO , EDIT_TASK , TOGGLE_COMPLETE  , COMPLETED , UNCOMPLETED} from "../const"
+import {ADD_TODO, DELETE_TODO , EDIT_TASK , TOGGLE_COMPLETE  , FILTER_TASKS} from "../const"
 
 
 const initState = {
-    todos : [{text : "learn React-redux" , isComplete : false , id : 0}]
+    todos : [{text : "learn React-redux" , isComplete : false , id : 0}],
+    filterTask : "no-filter"
 
 }
 
@@ -25,6 +26,8 @@ export default function (state = initState , action) {
         : todo
         )};
         
+        case FILTER_TASKS:
+        return { ...state, filterTask: action.payload };
         
         default :
         return state;
